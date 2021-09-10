@@ -14,6 +14,8 @@ pub fn data_types() {
     let _d = 'z';
     let _tup: (i32, f64, u8) = (500, 6.4, 1);
 
+    //   Tuple
+
     let (_x, _y, _z) = _tup;
 
     println!("The value of y is: {}", _y);
@@ -26,6 +28,21 @@ pub fn data_types() {
 
     println!("The value of  five_hundred is: {}", _five_hundred);
 
+    let _tup1 = (20, "Rust", 3.4, false, (1, 2, 3));
+
+    println!("The nested tuple value in position is {}", (_tup1.4).2);
+
+
+    let _tup2 = (1, 2, "Rust");
+    let (a, b, c) = _tup2;
+
+    println!("a is {}", a);
+    println!("b is {}", b);
+    println!("c is {}", c);
+
+
+    // Array
+
     let mut _array:[i32; 5] = [1, 2, 3, 4, 5];
     _array  = [1, 2, 3, 4, 5];
 
@@ -35,18 +52,35 @@ pub fn data_types() {
     println!("The first value of array_b is: {}", _array_b[0]);
 
 
+
+
+    // Enum
+
+
     enum Color {
         // These 3 are specified solely by their name.
         Red,
         Blue,
-        Green,
-        // These likewise tie `u32` tuples to different names: color models.
-        RGB(u32, u32, u32),
-        HSV(u32, u32, u32),
-        HSL(u32, u32, u32),
-        CMY(u32, u32, u32),
-        CMYK(u32, u32, u32, u32),
+        Green
+        // // These likewise tie `u32` tuples to different names: color models.
+        // RGB(u32, u32, u32),
+        // HSV(u32, u32, u32),
+        // HSL(u32, u32, u32),
+        // CMY(u32, u32, u32),
+        // CMYK(u32, u32, u32, u32)
     }
+
+    let red:Color = Color::Red;
+
+    match red {
+        Color::Red => println!("Color is red!"),
+        Color::Blue => println!("Color is blue!"),
+        _ => println!("Color is ***")
+    }
+
+
+
+    // Struct
 
     struct Foo {
         x: (u32, u32),
@@ -70,4 +104,28 @@ pub fn data_types() {
     }
     
 
+
+    // Const
+
+    const MAXIMUM_NUMBER: u8 = 3;
+
+    for n in 1..MAXIMUM_NUMBER {
+        println!("count until maximum number {}", n);
+    }
+
+
+
+    // Code Blocks & Shadowing
+
+    let mut x = 10;
+
+    {
+        let x = 15;
+    }
+    println!("x is {}", x);
+    let x = "X is a string";
+    println!("x is {}", x);
+
+    let x = true;
+    println!("x is {}", x);
 }
