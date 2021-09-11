@@ -102,8 +102,17 @@ pub fn data_types() {
         // this will give an error: pattern does not mention field `x`
         //Foo { y } => println!("y = {}", y),
     }
-    
 
+    struct Color_Struct {
+        red: u8, // u8: 0-255
+        green: u8,
+        blue: u8
+    }
+
+    let mut bg = Color_Struct { red: 255, green: 70, blue: 15 };
+
+    bg.red  = 0;
+    println!("{} {} {} ", bg.red, bg.green, bg.blue);
 
     // Const
 
